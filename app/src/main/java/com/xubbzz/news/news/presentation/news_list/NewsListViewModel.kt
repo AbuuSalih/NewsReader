@@ -6,12 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.xubbzz.news.core.presentation.navigation.Screens
 import com.xubbzz.news.news.data.room.entities.NewsPreviewTuple
-import com.xubbzz.news.news.domain.repository.NewsRepository
+import com.xubbzz.news.news.domain.usecases.GetPreviewNewsUseCase
 import kotlinx.coroutines.launch
 import me.aartikov.alligator.AndroidNavigator
 
 class NewsListViewModel(
-    private val newsRepository: NewsRepository,
+    private val getPreviewNewsUseCase: GetPreviewNewsUseCase,
     private val navigator: AndroidNavigator
 ) : ViewModel() {
 
@@ -22,7 +22,7 @@ class NewsListViewModel(
 
     init {
         viewModelScope.launch {
-            newsList.addAll(newsRepository.getPreviewNews())
+            newsList.addAll(getPreviewNewsUseCase.invoke())
             bindContent(newsList)
         }
     }

@@ -5,14 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.xubbzz.news.core.presentation.navigation.Screens
-import com.xubbzz.news.news.domain.repository.NewsRepository
+import com.xubbzz.news.news.domain.usecases.GetDetailNewsUseCase
 import kotlinx.coroutines.launch
-import me.aartikov.alligator.AndroidNavigator
 
 class NewsDetailViewModel(
     private val args: Screens.NewsDetail,
-    private val newsRepository: NewsRepository,
-    private val navigator: AndroidNavigator
+    private val getDetailNewsUseCase: GetDetailNewsUseCase
 ) : ViewModel() {
 
     private val _content = MutableLiveData<HashMap<String, String?>>()
@@ -22,7 +20,7 @@ class NewsDetailViewModel(
 
     init {
         viewModelScope.launch {
-            val news = newsRepository.getDetailNews(args.keyTitle)
+            val news = getDetailNewsUseCase.invoke(args.keyTitle)
             elementsNews[NewsDetail.TITLE.name] = news.title
             elementsNews[NewsDetail.CONTENT.name] = news.content
             elementsNews[NewsDetail.IMAGE.name] = news.urlToImage
@@ -33,7 +31,7 @@ class NewsDetailViewModel(
     }
 
     private fun bindContent(news: HashMap<String, String?> = elementsNews) {
-        _content.value = elementsNews
+        _content.value = news
     }
 
     enum class NewsDetail {

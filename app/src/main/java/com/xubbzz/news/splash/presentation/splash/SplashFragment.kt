@@ -1,4 +1,4 @@
-package com.xubbzz.news.splash.presentation
+package com.xubbzz.news.splash.presentation.splash
 
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.xubbzz.news.R

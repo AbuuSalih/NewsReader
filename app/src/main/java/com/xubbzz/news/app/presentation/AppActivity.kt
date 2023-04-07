@@ -6,7 +6,7 @@ import androidx.activity.OnBackPressedCallback
 import com.xubbzz.news.R
 import com.xubbzz.news.core.presentation.navigation.GlobalNavigator
 import com.xubbzz.news.databinding.ActivityAppBinding
-import com.xubbzz.news.splash.presentation.SplashFragment
+import com.xubbzz.news.splash.presentation.splash.SplashFragment
 import me.aartikov.alligator.NavigationContext
 
 class AppActivity : AppCompatActivity() {

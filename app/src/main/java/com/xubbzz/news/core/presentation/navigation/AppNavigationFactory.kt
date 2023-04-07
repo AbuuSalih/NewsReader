@@ -3,7 +3,7 @@ package com.xubbzz.news.core.presentation.navigation
 import com.xubbzz.news.app.presentation.AppActivity
 import com.xubbzz.news.news.presentation.news_detail.NewsDetailFragment
 import com.xubbzz.news.news.presentation.news_list.NewsListFragment
-import com.xubbzz.news.splash.presentation.SplashFragment
+import com.xubbzz.news.splash.presentation.splash.SplashFragment
 import me.aartikov.alligator.Screen
 import me.aartikov.alligator.navigationfactories.RegistryNavigationFactory
 import java.io.Serializable

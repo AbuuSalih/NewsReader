@@ -8,15 +8,14 @@ import org.koin.dsl.module
 fun newsPresentationModule() = module {
     viewModel {
         NewsListViewModel(
-            newsRepository = get(),
+            getPreviewNewsUseCase = get(),
             navigator = get()
         )
     }
     viewModel {
         NewsDetailViewModel(
             args = get(),
-            newsRepository = get(),
-            navigator = get()
+            getDetailNewsUseCase = get()
         )
     }
 }
